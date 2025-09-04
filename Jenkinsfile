@@ -14,7 +14,7 @@ pipeline {
                 script {
                     def imageName = "jenkins-docker-test"
                     echo "🐳 Building Docker image: ${imageName}"
-                    sh "docker build -t ${imageName} ."
+                    bat "docker build -t ${imageName} ."
                 }
             }
         }
@@ -24,7 +24,7 @@ pipeline {
                 script {
                     def imageName = "jenkins-docker-test"
                     echo "🚀 Running Docker container..."
-                    sh "docker run --rm ${imageName}"
+                    bat "docker run --rm ${imageName}"
                 }
             }
         }

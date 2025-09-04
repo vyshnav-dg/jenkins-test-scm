@@ -14,7 +14,9 @@ pipeline {
                 script {
                     def imageName = "jenkins-docker-test"
                     echo "🐳 Building Docker image: ${imageName}"
-                    bat "docker build -t ${imageName} ."
+                    bat 'docker rmi jenkins-docker-test || echo "Image not found, skipping removal"'
+                    bat 'docker build -t jenkins-docker-test .'
+
                 }
             }
         }
